@@ -3,9 +3,9 @@
  * @brief Defines the scim::KeyEvent class and related enums, functions.
  */
 
-/* 
+/*
  * Smart Common Input Method
- * 
+ *
  * Copyright (c) 2002-2005 James Su <suzhe@tsinghua.org.cn>
  *
  *
@@ -63,9 +63,9 @@ enum KeyMask
     SCIM_KEY_Mod1Mask       = SCIM_KEY_AltMask,      /**< For backward API compatibility, do not use it in new code */
     SCIM_KEY_Mod2Mask       = SCIM_KEY_MetaMask,     /**< For backward API compatibility, do not use it in new code */
     SCIM_KEY_Mod3Mask       = SCIM_KEY_SuperMask,    /**< For backward API compatibility, do not use it in new code */
-    SCIM_KEY_Mod4Mask       = SCIM_KEY_HyperMask,    /**< For backward API compatibility, do not use it in new code */ 
-    SCIM_KEY_Mod5Mask       = SCIM_KEY_NumLockMask,  /**< For backward API compatibility, do not use it in new code */ 
-    SCIM_KEY_ScrollLockMask = 0,                     /**< For backward API compatibility, do not use it in new code */ 
+    SCIM_KEY_Mod4Mask       = SCIM_KEY_HyperMask,    /**< For backward API compatibility, do not use it in new code */
+    SCIM_KEY_Mod5Mask       = SCIM_KEY_NumLockMask,  /**< For backward API compatibility, do not use it in new code */
+    SCIM_KEY_ScrollLockMask = 0,                     /**< For backward API compatibility, do not use it in new code */
 
     SCIM_KEY_QuirkKanaRoMask= (1<<14),      /**< Special mask to distinguish two backslash keys on jp106 keyboard */
 
@@ -1957,37 +1957,38 @@ enum KeyboardLayout
     SCIM_KEYBOARD_Danish                        = 6,
     SCIM_KEYBOARD_Dutch                         = 7,
     SCIM_KEYBOARD_Dvorak                        = 8,
-    SCIM_KEYBOARD_Estonian                      = 9,
-    SCIM_KEYBOARD_Finnish                       = 10,
-    SCIM_KEYBOARD_French                        = 11,
-    SCIM_KEYBOARD_French_Canadian               = 12,
-    SCIM_KEYBOARD_French_Switzerland            = 13,
-    SCIM_KEYBOARD_German                        = 14,
-    SCIM_KEYBOARD_German_Deadkeys               = 15,
-    SCIM_KEYBOARD_German_Swiss                  = 16,
-    SCIM_KEYBOARD_Greek                         = 17,
-    SCIM_KEYBOARD_Hungarian                     = 18,
-    SCIM_KEYBOARD_Italian                       = 19,
-    SCIM_KEYBOARD_Japanese                      = 20,
-    SCIM_KEYBOARD_Norwegian                     = 21,
-    SCIM_KEYBOARD_Polish                        = 22,
-    SCIM_KEYBOARD_Portuguese                    = 23,
-    SCIM_KEYBOARD_Portuguese_Brazil             = 24,
-    SCIM_KEYBOARD_Portuguese_Brazil_US_Accents  = 25, 
-    SCIM_KEYBOARD_Russian                       = 26,
-    SCIM_KEYBOARD_Slovak                        = 27,
-    SCIM_KEYBOARD_Slovak_Qwerty                 = 28,
-    SCIM_KEYBOARD_Slovene                       = 29,
-    SCIM_KEYBOARD_Spanish                       = 30,
-    SCIM_KEYBOARD_Spanish_CP850                 = 31,
-    SCIM_KEYBOARD_Spanish_Latin_America         = 32,
-    SCIM_KEYBOARD_Swedish                       = 33,
-    SCIM_KEYBOARD_Turkish                       = 34,
-    SCIM_KEYBOARD_UK                            = 35,
-    SCIM_KEYBOARD_Icelandic                     = 36,
-    SCIM_KEYBOARD_Lithuanian                    = 37,
-    SCIM_KEYBOARD_Ukrainian                     = 38,
-    SCIM_KEYBOARD_NUM_LAYOUTS                   = 39
+    SCIM_KEYBOARD_Dvoraki                       = 9,
+    SCIM_KEYBOARD_Estonian                      = 10,
+    SCIM_KEYBOARD_Finnish                       = 11,
+    SCIM_KEYBOARD_French                        = 12,
+    SCIM_KEYBOARD_French_Canadian               = 13,
+    SCIM_KEYBOARD_French_Switzerland            = 14,
+    SCIM_KEYBOARD_German                        = 15,
+    SCIM_KEYBOARD_German_Deadkeys               = 16,
+    SCIM_KEYBOARD_German_Swiss                  = 17,
+    SCIM_KEYBOARD_Greek                         = 18,
+    SCIM_KEYBOARD_Hungarian                     = 19,
+    SCIM_KEYBOARD_Italian                       = 20,
+    SCIM_KEYBOARD_Japanese                      = 21,
+    SCIM_KEYBOARD_Norwegian                     = 22,
+    SCIM_KEYBOARD_Polish                        = 23,
+    SCIM_KEYBOARD_Portuguese                    = 24,
+    SCIM_KEYBOARD_Portuguese_Brazil             = 25,
+    SCIM_KEYBOARD_Portuguese_Brazil_US_Accents  = 26,
+    SCIM_KEYBOARD_Russian                       = 27,
+    SCIM_KEYBOARD_Slovak                        = 28,
+    SCIM_KEYBOARD_Slovak_Qwerty                 = 29,
+    SCIM_KEYBOARD_Slovene                       = 30,
+    SCIM_KEYBOARD_Spanish                       = 31,
+    SCIM_KEYBOARD_Spanish_CP850                 = 32,
+    SCIM_KEYBOARD_Spanish_Latin_America         = 33,
+    SCIM_KEYBOARD_Swedish                       = 34,
+    SCIM_KEYBOARD_Turkish                       = 35,
+    SCIM_KEYBOARD_UK                            = 36,
+    SCIM_KEYBOARD_Icelandic                     = 37,
+    SCIM_KEYBOARD_Lithuanian                    = 38,
+    SCIM_KEYBOARD_Ukrainian                     = 39,
+    SCIM_KEYBOARD_NUM_LAYOUTS                   = 40
 };
 
 struct KeyEvent;
@@ -2061,7 +2062,7 @@ String scim_keyboard_layout_get_display_name (KeyboardLayout layout);
  *
  * This function is mainly used by FrontEnds and Setup tools.
  * IMEngines should not use it.
- */ 
+ */
 KeyboardLayout scim_get_default_keyboard_layout ();
 
 /**
@@ -2155,14 +2156,14 @@ struct KeyEvent
      * then it'll not be mapped and the identical KeyEvent
      * will be returned.
      *
-     * If you want to check if the mapping is successful, 
+     * If you want to check if the mapping is successful,
      * just compare the layout of returned KeyEvent and new_layout
      * to see if they are equal.
      *
      * @param new_layout The Keyboard Layout to be mapped to.
      *
      * @return The new KeyEvent according to the given layout.
-     */ 
+     */
     KeyEvent map_to_layout (KeyboardLayout new_layout) const;
 
     /**
@@ -2235,7 +2236,7 @@ struct KeyEvent
      * @brief Compare two key events.
      *
      * This operator is mainly for sorting.
-     * 
+     *
      * @return true if the first is smaller.
      */
     bool operator < (const KeyEvent & key) const {
